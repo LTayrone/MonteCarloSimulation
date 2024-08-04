@@ -5,7 +5,8 @@ from data.downloader import download_data
 from simulation.monte_carlo import monte_carlo_simulation
 from visualization.plots import plot_simulated_paths, plot_histogram
 
-st.title('Simulação de Monte Carlo de Preços de Ações')
+st.title('Simulação Monte Carlo de Preços de Ações')
+st.subheader("Lucas Tayrone Moreira Ribeiro - Universidade Federal de Ouro Preto")
 
 ticker = st.text_input('Digite o código da ação (ex: NVDA ou BEEF3.SA):')
 start_date = st.date_input('Data de início', value=pd.to_datetime('2022-01-01'))
