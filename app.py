@@ -7,8 +7,9 @@ from visualization.plots import plot_simulated_paths, plot_histogram
 
 st.title('Simulação Monte Carlo de Preços de Ações')
 
-st.write("[Para pesquisar as ações acesse](https://finance.yahoo.com/quote/VALE/)")
+st.write("[Para pesquisar o codigo das ações acesse](https://finance.yahoo.com/quote/VALE/)")
 st.write("Lucas Tayrone Moreira Ribeiro - Universidade Federal de Ouro Preto")
+st.write("Hiago Batista - Universidade Federal de São João Del Rei")
 
 ticker = st.text_input('Digite o código da ação (ex: NVDA ou BEEF3.SA):')
 start_date = st.date_input('Data de início', value=pd.to_datetime('2022-01-01'))
