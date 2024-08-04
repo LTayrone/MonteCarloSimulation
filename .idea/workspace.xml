@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f76f5f3-39cb-4a06-b955-cc64ace8d90e" name="Changes" comment="Atualização 1">
+    <list default="true" id="7f76f5f3-39cb-4a06-b955-cc64ace8d90e" name="Changes" comment="Atualização 2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
     </list>
@@ -85,7 +85,7 @@
       <workItem from="1722802145683" duration="393000" />
       <workItem from="1722802550050" duration="154000" />
       <workItem from="1722803874288" duration="312000" />
-      <workItem from="1722804204555" duration="5264000" />
+      <workItem from="1722804204555" duration="5820000" />
     </task>
     <task id="LOCAL-00001" summary="Atualização 1">
       <option name="closed" value="true" />
@@ -95,7 +95,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722807106584</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Atualização 2">
+      <option name="closed" value="true" />
+      <created>1722809788028</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1722809788028</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -114,7 +122,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Atualização 1" />
-    <option name="LAST_COMMIT_MESSAGE" value="Atualização 1" />
+    <MESSAGE value="Atualização 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Atualização 2" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/pythonProject$direto.coverage" NAME="direto Coverage Results" MODIFIED="1722798869259" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
