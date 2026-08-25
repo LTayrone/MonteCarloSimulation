@@ -5,19 +5,41 @@ from data.downloader import download_data
 from simulation.monte_carlo import monte_carlo_simulation
 from visualization.plots import plot_simulated_paths, plot_histogram
 
-st.title('Simulação Monte Carlo de Preços de Ações')
+st.title("Simulação Monte Carlo de Preços de Ações")
 
-st.write("[Para pesquisar o codigo das ações acesse](https://finance.yahoo.com/quote/VALE/)")
+st.write("[Para pesquisar o código das ações acesse](https://finance.yahoo.com/quote/VALE3.SA/)")
 st.write("Lucas Tayrone Moreira Ribeiro - Universidade Federal de Ouro Preto")
-st.write("Hiago Batista - Universidade Federal de São João Del Rei")
+st.write(f"Atualizado em {pd.Timestamp.now().strftime('%d/%m/%Y %H:%M:%S')}")
 
-ticker = st.text_input('Digite o código da ação (ex: NVDA ou BEEF3.SA):')
-start_date = st.date_input('Data de início', value=pd.to_datetime('2022-01-01'))
-end_date = st.date_input('Data de término', value=pd.to_datetime('2024-01-01'))
+ticker = st.text_input("Digite o código da ação (ex: NVDA ou VALE3.SA):")
+start_date = st.date_input("Data de início", value=pd.to_datetime("2022-01-01"))
+end_date = st.date_input("Data de término", value=pd.to_datetime("2024-01-01"))
 
 if ticker:
+    ticker = ticker.strip().upper()
+
+    if start_date >= end_date:
+        st.error("A data de início deve ser anterior à data de término.")
+        st.stop()
+
     data = download_data(ticker, start_date, end_date)
-    data['Return'] = data['Adj Close'].pct_change()
+
+    if data.empty:
+        st.error(
+            "Nenhum dado foi encontrado para esse código e período. "
+            "Para ações brasileiras, use o formato com número e sufixo .SA, por exemplo: VALE3.SA."
+        )
+        st.stop()
+
+    if "Adj Close" not in data.columns:
+        st.error("A coluna 'Adj Close' não foi encontrada nos dados retornados pelo Yahoo Finance.")
+        st.stop()
+
+    data["Return"] = data["Adj Close"].pct_change()
+
+    if data["Return"].dropna().empty:
+        st.error("Não há dados suficientes para calcular os retornos.")
+        st.stop()
 
     ST, mu, sigma = monte_carlo_simulation(data)
 

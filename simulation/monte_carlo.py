@@ -2,9 +2,15 @@ import numpy as np
 
 
 def monte_carlo_simulation(data, T=1.0, N=10000):
-    mu = data['Return'].mean()
-    sigma = data['Return'].std()
-    S0 = data['Adj Close'][-1]
+    returns = data['Return'].dropna()
+    prices = data['Adj Close'].dropna()
+
+    if returns.empty or prices.empty:
+        raise ValueError("Dados insuficientes para executar a simulação.")
+
+    mu = returns.mean()
+    sigma = returns.std()
+    S0 = prices.iloc[-1]
     dt = 1 / 252
     steps = int(T / dt)
 
