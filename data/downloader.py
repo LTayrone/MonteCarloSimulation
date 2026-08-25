@@ -1,4 +1,13 @@
+import pandas as pd
 import yfinance as yf
+
+
+def normalize_columns(data):
+    if isinstance(data.columns, pd.MultiIndex):
+        data = data.copy()
+        data.columns = data.columns.get_level_values(0)
+
+    return data
 
 
 def download_data(ticker, start_date, end_date):
@@ -10,7 +19,4 @@ def download_data(ticker, start_date, end_date):
         progress=False,
     )
 
-    if hasattr(data.columns, "nlevels") and data.columns.nlevels > 1:
-        data.columns = data.columns.get_level_values(0)
-
-    return data
+    return normalize_columns(data)

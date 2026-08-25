@@ -1,9 +1,17 @@
 import numpy as np
+import pandas as pd
+
+
+def as_series(values):
+    if isinstance(values, pd.DataFrame):
+        return values.iloc[:, 0]
+
+    return values
 
 
 def monte_carlo_simulation(data, T=1.0, N=10000):
-    returns = data['Return'].dropna()
-    prices = data['Price'].dropna()
+    returns = as_series(data["Return"]).dropna()
+    prices = as_series(data["Price"]).dropna()
 
     if returns.empty or prices.empty:
         raise ValueError("Dados insuficientes para executar a simulação.")
