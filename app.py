@@ -31,11 +31,16 @@ if ticker:
         )
         st.stop()
 
-    if "Adj Close" not in data.columns:
-        st.error("A coluna 'Adj Close' não foi encontrada nos dados retornados pelo Yahoo Finance.")
+    if "Adj Close" in data.columns:
+        data["Price"] = data["Adj Close"]
+    elif "Close" in data.columns:
+        data["Price"] = data["Close"]
+        st.info("A coluna 'Adj Close' não veio no retorno do Yahoo Finance. Usando 'Close' no cálculo.")
+    else:
+        st.error("Nenhuma coluna de preço foi encontrada nos dados retornados pelo Yahoo Finance.")
         st.stop()
 
-    data["Return"] = data["Adj Close"].pct_change()
+    data["Return"] = data["Price"].pct_change()
 
     if data["Return"].dropna().empty:
         st.error("Não há dados suficientes para calcular os retornos.")

@@ -3,7 +3,7 @@ import numpy as np
 
 def monte_carlo_simulation(data, T=1.0, N=10000):
     returns = data['Return'].dropna()
-    prices = data['Adj Close'].dropna()
+    prices = data['Price'].dropna()
 
     if returns.empty or prices.empty:
         raise ValueError("Dados insuficientes para executar a simulação.")
