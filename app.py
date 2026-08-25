@@ -19,7 +19,8 @@ def select_price_column(data):
 st.title("Simulação Monte Carlo de Preços de Ações")
 
 st.write("[Para pesquisar o código das ações acesse](https://finance.yahoo.com/quote/VALE3.SA/)")
-st.write("Lucas Tayrone Moreira Ribeiro - Universidade Federal de Ouro Preto")
+st.write("Lucas Tayrone Moreira Ribeiro")
+st.write("[LinkedIn](https://www.linkedin.com/in/lucastayrone/)")
 st.write(f"Atualizado em {pd.Timestamp.now().strftime('%d/%m/%Y %H:%M:%S')}")
 
 ticker = st.text_input("Digite o código da ação (ex: NVDA ou VALE3.SA):")
